@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot name="first_robot">
+   <gazebo reference="red_dot">
+      <material>Gazebo/Red</material>
+      <gravity>false</gravity>
+      <turnGravityOff>true</turnGravityOff>
+   </gazebo>
+  <link name="red_dot">
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <sphere radius="0.5" />
+        </geometry>
+    </collision>
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <sphere radius="0.5" />
+        </geometry>
+        <material name="red">
+            <color rgba="0.8 0 0 1"/>
+        </material>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+</robot>

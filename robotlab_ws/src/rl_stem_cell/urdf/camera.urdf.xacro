@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ur5_camera" >
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find rl_stem_cell)/urdf/camera.gazebo.xacro" />
+  <xacro:farbe />
+  
+  <!-- camera1 -->  
+  <link name="camera1_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <color rgba="0.8 0.0 0.0 1.0"/>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  
+  <!-- camera2 -->  
+  <link name="camera2_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <color rgba="0.8 0.0 0.0 1.0"/>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  
+  
+  <!-- kinect -->  
+  <link name="kinect_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <color rgba="0.8 0.0 0.0 1.0"/>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  
+  
+  <link name="world" />
+
+  <joint name="world_joint1" type="fixed">
+    <parent link="world" />
+    <child link = "camera1_link" />
+    <origin xyz="0.0 0.2 0.3" rpy="0.0 1.0 -.2" />
+  </joint>
+  
+  <joint name="world_joint2" type="fixed">
+    <parent link="world" />
+    <child link = "camera2_link" />
+    <origin xyz="0.0 -.2 0.3" rpy="0.0 1.0 0.2" />
+  </joint>
+  
+  <joint name="world_joint3" type="fixed">
+    <parent link="world" />
+    <child link = "kinect_link" />
+    <origin xyz="0.0 0.0 0.3" rpy="0.0 1.0 0.0" />
+  </joint>
+
+</robot>

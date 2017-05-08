@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="limited" default="false"/>
+  <arg name="paused" default="false"/>
+  <arg name="gui" default="true"/>
+  <arg name="debug" default="true"/>
+  <arg name="sim" default="true"/>
+  
+  
+  <!-- startup simulated world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" default="worlds/empty.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+  
+  <!-- CAMERA -->
+
+  <param unless="$(arg limited)" name="camera_description" command="$(find xacro)/xacro.py '$(find rl_stem_cell)/urdf/camera.urdf.xacro'"/>
+  <node name="spawn_gazebo_cam" pkg="gazebo_ros" type="spawn_model" args="-urdf -param camera_description -model camera -x -.2 -z 1" respawn="false" output="screen" />
+
+</launch>
