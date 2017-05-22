@@ -9,7 +9,7 @@ Basic image processing and moveit commands using the ROS
   year = {2017},
   publisher = {GitHub},
   journal = {GitHub repository},
-  howpublished = {\url{https://github.com/naszy/tikznet}},
+  howpublished = {\url{https://github.com/naszy/ROS-basics}},
   urldate="2017-05-08"
 }
 ```
